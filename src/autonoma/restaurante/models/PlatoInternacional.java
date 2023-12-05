@@ -11,4 +11,20 @@ package autonoma.restaurante.models;
  */
 public class PlatoInternacional {
     
+    private String paisOrigen;
+    
+    public PlatoInternacional(String paisOrigen){
+        this.paisOrigen=paisOrigen;
+    
+    }
+
+    public String getPaisOrigen() {
+        return paisOrigen;
+    }
+
+    public void setPaisOrigen(String paisOrigen) {
+        this.paisOrigen = paisOrigen;
+    }
+    
+    
 }

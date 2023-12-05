@@ -10,5 +10,16 @@ package autonoma.restaurante.models;
  * @author dioge
  */
 public class Restaurante {
-    
+  /////atributos
+  private String nombre;
+  private String direccion;
+  private String telefono;
+  
+  ///// constructor
+  public Restaurante(String nombre,String direccion, String telefono){
+   this.nombre="El Buen Sabor";
+   this.direccion="Calle 8 n° 11-73 ";
+   this.telefono="8879200";
+  }
+ 
 }
