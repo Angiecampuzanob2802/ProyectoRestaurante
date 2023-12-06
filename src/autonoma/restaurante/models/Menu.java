@@ -19,11 +19,41 @@ public class Menu {
     
     ////constructor
     public Menu(String nombreRepresentativo,int anoCreacion){
-       this.nombreRepresentativo="Sabor Menu";
-       this.anoCreacion=2020;
+       this.nombreRepresentativo=nombreRepresentativo;
+       this.anoCreacion=anoCreacion;
        this.platos = new ArrayList<>();
     
     }
+
+    Menu() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public String getNombreRepresentativo() {
+        return nombreRepresentativo;
+    }
+
+    public void setNombreRepresentativo(String nombreRepresentativo) {
+        this.nombreRepresentativo = nombreRepresentativo;
+    }
+
+    public int getAnoCreacion() {
+        return anoCreacion;
+    }
+
+    public void setAnoCreacion(int anoCreacion) {
+        this.anoCreacion = anoCreacion;
+    }
+
+    public ArrayList<Plato> getPlatos() {
+        return platos;
+    }
+
+    public void setPlatos(ArrayList<Plato> platos) {
+        this.platos = platos;
+    }
+    
+    
        
 ///// CRUD de platos
     public boolean agregarPlato(Plato plato){

@@ -9,24 +9,32 @@ package autonoma.restaurante.models;
  *
  * @author dioge
  */
-public class Plato {
+public abstract class Plato {
     
     ///atributos 
     private int id;
-    private String nombre;
+    public String nombre;
     private double precioVenta;
-    private double costoDeFabricacion;
-    private String descripcion;
+    double costoDeFabricacion;
+    public String descripcion;
     
     /// constructor
-     public Plato(int id,String nombre,double precioVenta,double costoDeFabricacion,String descripcion){
+
+    /**
+     *
+     * @param id
+     * @param nombre
+     * @param costoDeFabricacion
+     * @param descripcion
+     */
+     public Plato(int id,String nombre,double costoDeFabricacion,String descripcion){
        this.id=id;
        this.nombre=nombre;
-       this.precioVenta=precioVenta;
+       this.precioVenta=calcularPrecioVenta();
        this.costoDeFabricacion=costoDeFabricacion;
        this.descripcion=descripcion;
                
-     }
+    } 
 
     public int getId() {
         return id;
@@ -67,6 +75,14 @@ public class Plato {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
      
-     
-}
+    
+     public abstract double calcularGanancia();
+    
+    public double calcularPrecioVenta() {
+        double ganancia = calcularGanancia();
+        double precioSinIVA = costoDeFabricacion + ganancia;
+        return precioSinIVA * 1.19; 
+    }
+}    

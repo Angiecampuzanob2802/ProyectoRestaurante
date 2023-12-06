@@ -9,11 +9,19 @@ package autonoma.restaurante.models;
  *
  * @author dioge
  */
-public class PlatoInternacional {
-    
+public class PlatoInternacional extends Plato {
     private String paisOrigen;
     
-    public PlatoInternacional(String paisOrigen){
+    /**
+     *
+     * @param id
+     * @param nombre
+     * @param paisOrigen
+     * @param descripcion
+     * @param costoDeFabricacion
+     */
+    public PlatoInternacional(int id,String nombre,double costoDeFabricacion,String descripcion,String paisOrigen){
+        super(id, nombre, costoDeFabricacion,descripcion);
         this.paisOrigen=paisOrigen;
     
     }
@@ -25,6 +33,10 @@ public class PlatoInternacional {
     public void setPaisOrigen(String paisOrigen) {
         this.paisOrigen = paisOrigen;
     }
-    
-    
+
+    @Override
+    public double calcularGanancia() {
+        return getCostoDeFabricacion() * 0.30;
+    }
 }
+    
