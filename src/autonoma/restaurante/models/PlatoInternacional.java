@@ -18,10 +18,10 @@ public class PlatoInternacional extends Plato {
      * @param nombre
      * @param paisOrigen
      * @param descripcion
-     * @param costoDeFabricacion
+     * @param costoFabricacion
      */
-    public PlatoInternacional(int id,String nombre,double costoDeFabricacion,String descripcion,String paisOrigen){
-        super(id, nombre, costoDeFabricacion,descripcion);
+    public PlatoInternacional(int id,String nombre,double costoFabricacion,String descripcion,String paisOrigen){
+        super(id, nombre, costoFabricacion,descripcion);
         this.paisOrigen=paisOrigen;
     
     }
@@ -36,7 +36,7 @@ public class PlatoInternacional extends Plato {
 
     @Override
     public double calcularGanancia() {
-        return getCostoDeFabricacion() * 0.30;
+        return getCostoFabricacion() * 0.30;
     }
 }
     

@@ -6,6 +6,7 @@
 package autonoma.restaurante.models;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -15,6 +16,8 @@ public class EstadoFinanciero {
     private Date fechaGeneracion;
     private double totalRecaudado;
     private double totalGanancias;
+    private List<EstadoFinanciero> estadosFinancieros;
+
 
     public EstadoFinanciero(Date fechaGeneracion, double totalRecaudado, double totalGanancias) {
         this.fechaGeneracion = fechaGeneracion;
@@ -44,10 +47,6 @@ public class EstadoFinanciero {
 
     public void setTotalGanancias(double totalGanancias) {
         this.totalGanancias = totalGanancias;
-    }
-
-    void add(EstadoFinanciero estadoFinanciero) {
-        throw new UnsupportedOperationException("Not supported yet.");
     }
    
 }

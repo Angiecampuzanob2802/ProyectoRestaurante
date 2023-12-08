@@ -10,12 +10,12 @@ package autonoma.restaurante.models;
  * @author dioge
  */
 public class PlatoNacional extends Plato {
-    public PlatoNacional(int id, String nombre, double costoDeFabricacion, String descripcion){
-        super(id, nombre, costoDeFabricacion, descripcion);
+    public PlatoNacional(int id, String nombre, double costoFabricacion, String descripcion){
+        super(id, nombre, costoFabricacion, descripcion);
     }
 
     @Override
     public double calcularGanancia() {
-        return getCostoDeFabricacion() * 0.25;
+        return getCostoFabricacion() * 0.25;
     }
 }

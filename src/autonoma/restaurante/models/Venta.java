@@ -5,6 +5,7 @@
  */
 package autonoma.restaurante.models;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -16,10 +17,11 @@ public class Venta {
     ////atributos
     private static int codigoActual = 1;
     private int codigo;
-     private double valorTotal;
+    private double valorTotal;
     private double valorGanancia;
     private Date fecha;
     private List<Plato> platosVendidos;
+    private ArrayList<Venta>ventas;
     
    ////constructor
     
@@ -80,5 +82,80 @@ public class Venta {
         this.platosVendidos = platosVendidos;
     }
 
+    public ArrayList<Venta> getVentas() {
+        return ventas;
+    }
+
+    public void setVentas(ArrayList<Venta> ventas) {
+        this.ventas = ventas;
+    }
+
+    
    
+
+    ///// CRUD de platos
+    public boolean agregarVenta(Venta venta){
+       return this.ventas.add(venta);
+    }
+    public Venta buscarVenta(Venta venta){
+        for(int i=0;i<this.ventas.size();i++){
+          Venta v= this.ventas.get(i);
+          if(v.equals(venta)){
+          return v;
+          
+            }
+        }
+      return null;
+    }
+     public Venta buscarVenta(int id){
+        for(int i=0;i<this.ventas.size();i++){
+          Venta v= this.ventas.get(i);
+          if(v.getId()== id){
+          return v;
+          
+          }
+        }
+      return null;
+    }
+    
+     private int buscarIndiceVenta(int id){
+     for(int i=0;i<this.ventas.size();i++){
+          Venta v= this.ventas.get(i);
+          if(v.getId()== id){
+          return i;   
+           }
+        }
+        return -1;
+   }
+   public Venta actualizarVenta(int id,Venta venta){
+        int index = this.buscarIndiceVenta(id);
+        if(index>=0){
+            return this.ventas.set(index, venta);
+        }else{
+          return null;
+        }
+   } 
+    public Venta eliminarVenta(int id){
+        int index = this.buscarIndiceVenta(id);
+        if(index>=0){
+            return this.ventas.remove(index);
+        }else{
+          return null;
+    
+        }
+    }
+    
+    public String mostrarVenta(){
+         
+        String menu="";
+        for(int i=0;i<this.ventas.size();i++){
+            Venta v= this.ventas.get(i);
+            menu +=v.toString()+"\n";
+         }
+         return menu;
+    
+    }
+      public int getId() {
+        return 0;  
+    }
 }

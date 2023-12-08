@@ -13,10 +13,10 @@ public abstract class Plato {
     
     ///atributos 
     private int id;
-    public String nombre;
+    private String nombre;
     private double precioVenta;
-    double costoDeFabricacion;
-    public String descripcion;
+    private double costoFabricacion;
+    private String descripcion;
     
     /// constructor
 
@@ -24,17 +24,17 @@ public abstract class Plato {
      *
      * @param id
      * @param nombre
-     * @param costoDeFabricacion
+     * @param costoFabricacion
      * @param descripcion
      */
-     public Plato(int id,String nombre,double costoDeFabricacion,String descripcion){
+     public Plato(int id,String nombre,double costoFabricacion,String descripcion){
        this.id=id;
        this.nombre=nombre;
+       this.costoFabricacion=costoFabricacion;
        this.precioVenta=calcularPrecioVenta();
-       this.costoDeFabricacion=costoDeFabricacion;
        this.descripcion=descripcion;
-               
-    } 
+       
+     } 
 
     public int getId() {
         return id;
@@ -60,12 +60,12 @@ public abstract class Plato {
         this.precioVenta = precioVenta;
     }
 
-    public double getCostoDeFabricacion() {
-        return costoDeFabricacion;
+    public double getCostoFabricacion() {
+        return costoFabricacion;
     }
 
-    public void setCostoDeFabricacion(double costoDeFabricacion) {
-        this.costoDeFabricacion = costoDeFabricacion;
+    public void setCostoFabricacion(double costoFabricacion) {
+        this.costoFabricacion = costoFabricacion;
     }
 
     public String getDescripcion() {
@@ -76,13 +76,11 @@ public abstract class Plato {
         this.descripcion = descripcion;
     }
 
-     
-    
      public abstract double calcularGanancia();
     
     public double calcularPrecioVenta() {
         double ganancia = calcularGanancia();
-        double precioSinIVA = costoDeFabricacion + ganancia;
+        double precioSinIVA = costoFabricacion  + ganancia;
         return precioSinIVA * 1.19; 
     }
 }    

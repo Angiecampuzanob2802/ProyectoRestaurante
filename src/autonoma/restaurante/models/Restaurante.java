@@ -21,57 +21,14 @@ public class Restaurante {
   
   ///// constructor
   public Restaurante(String nombre,String direccion, String telefono){
-   this.nombre=nombre;
-   this.direccion=direccion;
-   this.telefono=telefono;
-   this.menu = new Menu();
+   this.nombre="El Buen Sabor";
+   this.direccion="calle 8 n° 11-73" ;
+   this.telefono="8879200";
+   this.menu = new Menu("Sabor menu",2020);
    this.ventas = new ArrayList<>();
    
-  }
-   ///// metodos de acceso
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public Menu getMenu() {
-        return menu;
-    }
-
-    public void setMenu(Menu menu) {
-        this.menu = menu;
-    }
-
-    public List<Venta> getVentas() {
-        return ventas;
-    }
-
-    public void setVentas(List<Venta> ventas) {
-        this.ventas = ventas;
-    }
- 
-    
-    ////////CRUD
+  } 
+  ////////CRUD
   public boolean agregarPlato(Plato plato){
        return this.menu.agregarPlato(plato);
     }
@@ -96,7 +53,7 @@ public class Restaurante {
           return this.menu.mostrarMenu();
     }
     //////////////
-     public void realizarVenta(Venta venta) {
+    public void realizarVenta(Venta venta) {
         this.ventas.add(venta);
     }
    
@@ -104,6 +61,7 @@ public class Restaurante {
     public void generarEstadoFinanciero() {
         double totalRecaudado = 0;
         double totalGanancias = 0;
+        
 
         for (Venta venta :ventas) {
             totalRecaudado += venta.getValorTotal();
@@ -111,13 +69,8 @@ public class Restaurante {
         }
 
         EstadoFinanciero estadoFinanciero = new EstadoFinanciero(new Date(), totalRecaudado, totalGanancias);
-        estadoFinanciero.add(estadoFinanciero);
-
-     
         System.out.println("Estado financiero generado: " + estadoFinanciero);
-    }
-
-       
+    }   
 }
 
 
