@@ -20,8 +20,7 @@ import java.util.List;
 public class RestauranteControl {
     public static void main(String[] args) {
         Restaurante restaurante = new Restaurante("El buen sabor", "Calle 8 #11-73", "8879200");
-
- 
+        
         VentanaPrincipal ventana =  new VentanaPrincipal();
         ventana.setVisible(true);
     }

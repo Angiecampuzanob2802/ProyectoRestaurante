@@ -8,16 +8,30 @@ package autonoma.restaurante.models;
 import java.util.ArrayList;
 
 /**
- *
- * @author dioge
+ * Es un documento ofrecido en los restaurantes en el que se muestra a los clientes una secuencia o lista de posibles opciones disponibles para un cliente.
+ * @author Angie Campuzano Betancur
  */
 public class Menu {
     ////atributos
+    /**
+     * El nombre representativo del menú
+    */
     private String nombreRepresentativo;
+    /**
+     * El año de creación del menú
+     */
     private int anoCreacion;
+    /**
+     * Lista de platos disponibles en el menú
+     */
     private ArrayList<Plato>platos;
     
     ////constructor
+    /**
+     * Constructor para la clase menú
+     * @param nombreRepresentativo El nombre representativo del menú
+     * @param anoCreacion El año de creación del menú
+     */
     public Menu(String nombreRepresentativo,int anoCreacion){
        this.nombreRepresentativo="Sabor Menu";
        this.anoCreacion=2020;
@@ -25,9 +39,19 @@ public class Menu {
     
     }       
 ///// CRUD de platos
+    /**
+     * Agregar un plato al menú
+     * @param plato El plato a buscar en el menú
+     * @return teue si el plato se encuentra,false de lo contrario.
+     */
     public boolean agregarPlato(Plato plato){
        return this.platos.add(plato);
     }
+    /**
+     * Buscar un plato en el menú por objeto Plato
+     * @param plato El plato a buscar en el menú
+     * @return teue si el plato se encuentra,false de lo contrario.
+     */
     public Plato buscarPlato(Plato plato){
         for(int i=0;i<this.platos.size();i++){
           Plato p= this.platos.get(i);
